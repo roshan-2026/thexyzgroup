@@ -35,7 +35,7 @@ def handler(event, context):
         messages = [{"role": "system", "content": SYSTEM_INSTRUCTION}] + conversation_history
 
         response = client.chat.completions.create(
-            model="gemini-2.5-flash",
+            model="gemini-3.5-flash-lite",
             messages=messages,
             temperature=0.2
         )
