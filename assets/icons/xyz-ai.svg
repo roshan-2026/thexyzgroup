@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="XYZ AI icon">
+  <path d="M24 5 L27.2 18.5 L40 24 L27.2 29.5 L24 43 L20.8 29.5 L8 24 L20.8 18.5 Z"
+        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="24" cy="24" r="3.2" fill="currentColor"/>
+</svg>

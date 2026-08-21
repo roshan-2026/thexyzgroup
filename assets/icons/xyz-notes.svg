@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="XYZ Notes icon">
+  <rect x="10" y="6" width="28" height="36" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/>
+  <path d="M16 16 H32 M16 24 H32 M16 32 H26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

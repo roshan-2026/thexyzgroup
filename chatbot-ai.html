@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XYZ AI — TheXYZGroup</title>
+<meta name="description" content="XYZ AI — an AI assistant by TheXYZGroup.">
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="page">
+    <a class="back-link" href="../index.html">&larr; TheXYZGroup</a>
+
+    <div class="chat-card">
+      <div class="chat-header">
+        <div class="chat-avatar" aria-hidden="true">X</div>
+        <div class="chat-title">
+          <h1>XYZ AI</h1>
+          <p><span class="status-dot" aria-hidden="true"></span>Online</p>
+        </div>
+      </div>
+
+      <div id="chat-box" role="log" aria-live="polite" aria-label="Conversation with XYZ AI"></div>
+
+      <form class="input-row" id="chat-form">
+        <label for="userInput" class="visually-hidden" style="position:absolute;left:-9999px;">Message</label>
+        <input
+          type="text"
+          id="userInput"
+          placeholder="What's on your mind?"
+          autocomplete="off"
+          maxlength="1000">
+        <button type="submit" id="sendBtn">Send</button>
+      </form>
+    </div>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  const BACKEND_URL = "https://backend-qytm.onrender.com/chat";
+
+  const chatBox   = document.getElementById('chat-box');
+  const form      = document.getElementById('chat-form');
+  const input     = document.getElementById('userInput');
+  const sendBtn   = document.getElementById('sendBtn');
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+
+  function formatMessage(str) {
+    let safe = escapeHtml(str);
+    safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); 
+    safe = safe.replace(/\n/g, '<br>');                           
+    return safe;
+  }
+
+  function addMessage(sender, text, cssClass) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'msg ' + cssClass;
+
+    const senderEl = document.createElement('span');
+    senderEl.className = 'sender';
+    senderEl.textContent = sender;
+
+    const textEl = document.createElement('span');
+    textEl.innerHTML = formatMessage(text);
+
+    wrapper.appendChild(senderEl);
+    wrapper.appendChild(textEl);
+    chatBox.appendChild(wrapper);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    return wrapper;
+  }
+
+  function showTyping() {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'msg bot';
+    wrapper.innerHTML =
+      '<span class="sender">XYZ AI</span>' +
+      '<span class="typing-dots"><span></span><span></span><span></span></span>';
+    chatBox.appendChild(wrapper);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    return wrapper;
+  }
+
+  function setLoading(isLoading) {
+    input.disabled = isLoading;
+    sendBtn.disabled = isLoading;
+  }
+
+  async function sendMessage() {
+    const message = input.value.trim();
+    if (!message) return;
+
+    addMessage('You', message, 'user');
+    input.value = '';
+    setLoading(true);
+
+    const typingEl = showTyping();
+
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: message })
+      });
+
+      if (!res.ok) {
+        throw new Error('Server responded with status ' + res.status);
+      }
+
+      const data = await res.json();
+      const reply = (data && typeof data.response === 'string' && data.response.trim())
+        ? data.response
+        : "Sorry, I didn't get a valid response. Please try again.";
+
+      typingEl.remove();
+      addMessage('XYZ AI', reply, 'bot');
+
+    } catch (err) {
+      typingEl.remove();
+      addMessage('Error', 'Could not reach the server. Please check your connection and try again.', 'error');
+    } finally {
+      setLoading(false);
+      input.focus();
+    }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    sendMessage();
+  });
+
+  addMessage('XYZ AI', "Hello! How can I help you today?", 'bot');
+})();
+</script>
+</body>
+</html>
