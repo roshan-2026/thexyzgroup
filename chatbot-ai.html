@@ -9,13 +9,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/chatbot.css">
 </head>
 <body>
 
   <div class="page">
-    <a class="back-link" href="../index.html">&larr; TheXYZGroup</a>
-
+    <a class="back-link" href="../index.html" title="HomePage">&#8962 <span>TheXYZGroup</span></a>
     <div class="chat-card">
       <div class="chat-header">
         <div class="chat-avatar" aria-hidden="true">X</div>
@@ -51,6 +50,7 @@
   const input     = document.getElementById('userInput');
   const sendBtn   = document.getElementById('sendBtn');
 
+ 
   function escapeHtml(str) {
     return str
       .replace(/&/g, '&amp;')
@@ -63,8 +63,8 @@
 
   function formatMessage(str) {
     let safe = escapeHtml(str);
-    safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); 
-    safe = safe.replace(/\n/g, '<br>');                           
+    safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); // **bold**
+    safe = safe.replace(/\n/g, '<br>');                            // line breaks
     return safe;
   }
 
