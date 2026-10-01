@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <defs>
+    <!-- Radiant gold gradients for each axis -->
+    <linearGradient id="axis-y-grad" x1="100" y1="105" x2="100" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="60%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#fef08a" />
+    </linearGradient>
+
+    <linearGradient id="axis-x-grad" x1="100" y1="105" x2="168" y2="144" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#ffd166" />
+    </linearGradient>
+
+    <linearGradient id="axis-z-grad" x1="100" y1="105" x2="32" y2="144" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+
+    <radialGradient id="origin-glow" cx="100" cy="105" r="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#f59e0b" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#040409" stop-opacity="0" />
+    </radialGradient>
+
+    <filter id="xyz-axis-bloom" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Isometric coordinate boundary volume (faint 3D spatial cube) -->
+  <g stroke="rgba(245, 158, 11, 0.16)" stroke-width="1" stroke-dasharray="3 4">
+    <!-- Top-Right plane -->
+    <path d="M100 28 L166 66 L166 142" />
+    <!-- Top-Left plane -->
+    <path d="M100 28 L34 66 L34 142" />
+    <!-- Bottom plane -->
+    <path d="M34 142 L100 180 L166 142" />
+    <!-- Center coordinate connector -->
+    <path d="M100 105 L100 180" stroke="rgba(245, 158, 11, 0.12)" />
+  </g>
+
+  <!-- Ambient origin radiance -->
+  <circle cx="100" cy="105" r="28" fill="url(#origin-glow)" />
+
+  <!-- Main 3D Coordinate Axes Vectors -->
+  <g filter="url(#xyz-axis-bloom)">
+    <!-- Y-Axis Vector (Vertical Up) -->
+    <line x1="100" y1="105" x2="100" y2="28" stroke="url(#axis-y-grad)" stroke-width="3" stroke-linecap="round" />
+    <!-- Y Arrowhead -->
+    <path d="M94 36 L100 24 L106 36" stroke="url(#axis-y-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- X-Axis Vector (Down-Right Isometric 30 deg) -->
+    <line x1="100" y1="105" x2="166" y2="143" stroke="url(#axis-x-grad)" stroke-width="3" stroke-linecap="round" />
+    <!-- X Arrowhead -->
+    <path d="M154 139 L168 144 L161 131" stroke="url(#axis-x-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Z-Axis Vector (Down-Left Isometric 150 deg) -->
+    <line x1="100" y1="105" x2="34" y2="143" stroke="url(#axis-z-grad)" stroke-width="3" stroke-linecap="round" />
+    <!-- Z Arrowhead -->
+    <path d="M46 139 L32 144 L39 131" stroke="url(#axis-z-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Origin Junction Singularity (0,0,0) -->
+    <circle cx="100" cy="105" r="5" fill="#fef08a" />
+    <circle cx="100" cy="105" r="2" fill="#ffffff" />
+  </g>
+
+  <!-- Precision Axis Graduations / Ticks -->
+  <g stroke="#fbbf24" stroke-width="1.2" opacity="0.75">
+    <!-- Y ticks -->
+    <line x1="97" y1="86" x2="103" y2="86" />
+    <line x1="97" y1="67" x2="103" y2="67" />
+    <line x1="97" y1="48" x2="103" y2="48" />
+
+    <!-- X ticks -->
+    <line x1="114" y1="117" x2="119" y2="111" />
+    <line x1="131" y1="126" x2="136" y2="120" />
+    <line x1="148" y1="136" x2="153" y2="130" />
+
+    <!-- Z ticks -->
+    <line x1="86" y1="117" x2="81" y2="111" />
+    <line x1="69" y1="126" x2="64" y2="120" />
+    <line x1="52" y1="136" x2="47" y2="130" />
+  </g>
+
+  <!-- Modern Geometric Axis Labels: X, Y, Z -->
+  <g font-family="'Inter', -apple-system, sans-serif" font-weight="800" font-size="14" text-anchor="middle" dominant-baseline="central">
+    <!-- Y Label -->
+    <text x="100" y="10" fill="#fef08a" filter="url(#xyz-axis-bloom)" letter-spacing="1">Y</text>
+
+    <!-- X Label -->
+    <text x="184" y="152" fill="#ffd166" filter="url(#xyz-axis-bloom)" letter-spacing="1">X</text>
+
+    <!-- Z Label -->
+    <text x="16" y="152" fill="#fbbf24" filter="url(#xyz-axis-bloom)" letter-spacing="1">Z</text>
+  </g>
+</svg>

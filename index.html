@@ -1,260 +1,503 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ============================ META / SEO ============================ -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TheXYZGroup — Building Innovative Digital Projects</title>
-  <meta name="description" content="TheXYZGroup is a digital studio building modern web apps, AI tools, and utilities. Explore XYZ Chat, XYZ AI, XYZ Tools, XYZ Notes, XYZ Cloud, and more.">
-  <meta name="keywords" content="TheXYZGroup, XYZ Chat, XYZ AI, XYZ Tools, XYZ Notes, XYZ Cloud, digital studio, web apps">
-  <meta name="author" content="Roshan Nishad, Himanshu Singh">
-  <meta name="theme-color" content="#0b1220">
-  <link rel="canonical" href="https://www.thexyzgroup.com/">
+  <meta name="description" content="TheXYZGroup is a digital studio building modern web apps, AI tools, and utilities in an architectural 3D void.">
+  <meta name="author" content="Roshan Nishad, Himanshu Singh, Pranav Mani Tripathi">
+  <meta name="theme-color" content="#040409">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/xyz-brand.svg">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="TheXYZGroup — Building Innovative Digital Projects">
-  <meta property="og:description" content="A digital studio building modern web apps, AI tools, and utilities. Explore every TheXYZGroup project from one hub.">
-  <meta property="og:image" content="https://www.thexyzgroup.com/assets/images/og-image.png">
-  <meta property="og:url" content="https://www.thexyzgroup.com/">
-  <meta property="og:site_name" content="TheXYZGroup">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TheXYZGroup — Building Innovative Digital Projects">
-  <meta name="twitter:description" content="A digital studio building modern web apps, AI tools, and utilities.">
-  <meta name="twitter:image" content="https://www.thexyzgroup.com/assets/images/og-image.png">
-
-  <!-- Fonts: display serif + body sans + mono for labels/eyebrows -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Accessibility: skip straight to main content -->
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <!-- Skip link -->
+  <a class="skip-link" href="#home">Skip to main content</a>
 
-  <!-- ============================ NAVIGATION ============================ -->
-  <header>
-    <nav class="navbar" id="navbar" aria-label="Primary">
-      <div class="container">
-        <a class="brand" href="#home" aria-label="TheXYZGroup home">
-          <img src="assets/icons/favicon.svg" alt="" width="34" height="34" loading="eager">
-          <span>The<b>XYZ</b>Group</span>
-        </a>
+  <!-- 3D background canvas -->
+  <canvas id="wave-canvas" aria-hidden="true"></canvas>
 
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#home" aria-current="page">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+  <!-- Atmosphere fog -->
+  <div class="void-atmosphere" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+
+      <!-- Brand logo -->
+      <a class="brand" href="#home" aria-label="TheXYZGroup Home">
+        <div class="brand-icon">
+          <img src="assets/icons/xyz-brand.svg" alt="" width="34" height="34" loading="eager">
+        </div>
+        <span class="brand-name">The<b>XYZ</b>Group</span>
+      </a>
+
+      <!-- Primary navigation aligned to the right -->
+      <nav class="nav-menu" id="primary-navigation" aria-label="Primary">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#founders">Founders</a>
+      </nav>
+
+      <!-- Mobile navigation toggle -->
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+        <div class="mobile-toggle-bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+
+    </div>
   </header>
 
-  <main id="main">
+  <!-- Main content -->
+  <main id="main-content">
 
-    <!-- ============================== HERO ============================== -->
-    <section class="hero" id="home" aria-label="Introduction">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="orb orb-1" aria-hidden="true"></div>
-      <div class="orb orb-2" aria-hidden="true"></div>
-      <div class="orb orb-3" aria-hidden="true"></div>
+    <!-- Centered hero section -->
+    <section class="section hero-section" id="home" aria-label="Introduction">
+      <div class="container hero-centered-content">
 
-      <div class="container">
-        <span class="hero-tag"><span class="dot" aria-hidden="true"></span>Actively building</span>
+        <!-- Centered interactive 3D XYZ coordinate axis logo with orbital rings -->
+        <div class="hero-logo-stage from-void stagger-1" aria-label="Interactive 3D TheXYZGroup Coordinate Axis Logo">
+          <div class="hero-logo-3d" title="Click or move cursor to interact">
+            <div class="logo-orbit-ring orbit-1" aria-hidden="true"></div>
+            <div class="logo-orbit-ring orbit-2" aria-hidden="true"></div>
+            <div class="logo-orbit-ring orbit-3" aria-hidden="true"></div>
 
-        <h1>Building <em>Innovative</em> Digital Projects</h1>
+            <img src="assets/icons/xyz-brand.svg" alt="TheXYZGroup 3D XYZ Coordinate Axis Logo" class="logo-core-svg">
 
-        <p>
-          TheXYZGroup designs and ships modern web apps, AI-powered tools, and everyday
-          utilities — all gathered in one place so you can find, open, and use them in seconds.
+            <span class="axis-tag axis-y" aria-hidden="true">Roshan</span>
+            <span class="axis-tag axis-x" aria-hidden="true">Himanshu</span>
+            <span class="axis-tag axis-z" aria-hidden="true">Pranav</span>
+          </div>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hero-headline from-void stagger-2">
+          Building <em>Innovative</em> Digital Projects
+        </h1>
+
+        <!-- Narrative -->
+        <p class="hero-desc from-void stagger-3">
+          TheXYZGroup designs and ships modern web apps, AI-powered tools, and everyday utilities — gathered into a unified architectural continuum where precision meets human ambition<a href="https://sakshi.thexyzgroup.in" class="hero-easter-link" target="_blank" rel="noopener" style="color: inherit; text-decoration: none; cursor: text;">.</a>
         </p>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">Explore Projects</a>
-          <a class="btn btn-secondary" href="#contact">Contact Us</a>
-        </div>
       </div>
     </section>
 
-    <!-- ============================= PROJECTS ============================= -->
+    <hr class="hairline-divider" aria-hidden="true">
+
+    <!-- Projects section (cardless editorial list) -->
     <section class="section" id="projects" aria-labelledby="projects-heading">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">What we're building</span>
-          <h2 id="projects-heading">Our Projects</h2>
-          <p>Every product TheXYZGroup ships lives here first. New releases, updates, and experiments — one hub, always current.</p>
+
+        <div class="section-head from-void">
+          <span class="eyebrow">The Catalog</span>
+          <h2 class="section-title" id="projects-heading">Our Projects</h2>
+          <p class="section-subtitle">
+            Every product TheXYZGroup ships lives here first. New releases, updates, and cognitive experiments — one continuous hub, always current.
+          </p>
         </div>
 
-        <div class="projects-grid">
+        <div class="projects-editorial-list" role="list">
 
-          <article class="project-card glass reveal">
-            <div class="project-icon">
-              <img src="assets/icons/xyz-chat.svg" alt="" width="26" height="26" loading="lazy">
-            </div>
-            <h3>XYZ Chat</h3>
-            <p>Real-time messaging built for small teams — fast, minimal, and distraction-free.</p>
-            <a class="btn btn-secondary btn-small" href="coming.html">
-              Open Project <span aria-hidden="true">→</span>
-            </a>
-          </article>
+          <!-- Project 01: Skill Swap -->
+          <a href="https://skill-swap-xyz-group.vercel.app" class="project-row from-void stagger-1" role="listitem" target="_blank" rel="noopener">
+            <span class="project-index">01 //</span>
 
-          <article class="project-card glass reveal">
-            <div class="project-icon">
-              <img src="assets/icons/xyz-ai.svg" alt="" width="26" height="26" loading="lazy">
+            <div class="project-title-col">
+              <div class="project-icon-box">
+                <img src="assets/icons/xyz-swap.svg" alt="" width="20" height="20" loading="lazy">
+              </div>
+              <span class="project-name">Skill Swap</span>
             </div>
-            <h3>XYZ AI</h3>
-            <p>An AI assistant tuned for everyday tasks — writing, research, and quick answers.</p>
-            <a class="btn btn-secondary btn-small" href="chatbot-ai.html">
-              Open Project <span aria-hidden="true">→</span>
-            </a>
-          </article>
 
-          <article class="project-card glass reveal">
-            <div class="project-icon">
-              <img src="assets/icons/xyz-tools.svg" alt="" width="26" height="26" loading="lazy">
+            <div class="project-desc-col">
+              <span class="project-category">Creator Marketplace</span>
+              <p class="project-desc">Peer-to-peer talent &amp; gig marketplace connecting creators with clients to discover and book services. Built with Python &amp; Flask.</p>
             </div>
-            <h3>XYZ Tools</h3>
-            <p>A growing kit of small, sharp utilities for everyday developer and creator workflows.</p>
-            <a class="btn btn-secondary btn-small" href="coming.html">
-              Open Project <span aria-hidden="true">→</span>
-            </a>
-          </article>
 
-          <article class="project-card glass reveal">
-            <div class="project-icon">
-              <img src="assets/icons/xyz-notes.svg" alt="" width="26" height="26" loading="lazy">
+            <div class="project-status">
+              <span class="status-dot active"></span>
+              <span>Live App ↗</span>
             </div>
-            <h3>XYZ Notes</h3>
-            <p>Clean, fast note-taking with a focus on structure and nothing standing in your way.</p>
-            <a class="btn btn-secondary btn-small" href="coming.html">
-              Open Project <span aria-hidden="true">→</span>
-            </a>
-          </article>
+          </a>
 
-          <article class="project-card glass reveal">
-            <div class="project-icon">
-              <img src="assets/icons/xyz-cloud.svg" alt="" width="26" height="26" loading="lazy">
-            </div>
-            <h3>XYZ Cloud</h3>
-            <p>Simple, reliable file storage and sync — built for speed across every device.</p>
-            <a class="btn btn-secondary btn-small" href="coming.html">
-              Open Project <span aria-hidden="true">→</span>
-            </a>
-          </article>
+          <!-- Project 02: Rent Ledger -->
+          <a href="https://rent-manager.thexyzgroup.in" class="project-row from-void stagger-2" role="listitem" target="_blank" rel="noopener">
+            <span class="project-index">02 //</span>
 
-          <article class="project-card glass is-placeholder reveal">
-            <div class="project-icon">
-              <img src="assets/icons/xyz-more.svg" alt="" width="26" height="26" loading="lazy">
+            <div class="project-title-col">
+              <div class="project-icon-box">
+                <img src="assets/icons/xyz-ledger.svg" alt="" width="20" height="20" loading="lazy">
+              </div>
+              <span class="project-name">Rent Ledger</span>
             </div>
-            <h3>More Coming Soon</h3>
-            <p>TheXYZGroup is always building. New projects land here first.</p>
-          </article>
+
+            <div class="project-desc-col">
+              <span class="project-category">PropTech &amp; FinTech</span>
+              <p class="project-desc">Automated property management &amp; tenant payment ledger built for DevStorm Hackathon 2026, streamlining lease records.</p>
+            </div>
+
+            <div class="project-status">
+              <span class="status-dot active"></span>
+              <span>Live v1.0 ↗</span>
+            </div>
+          </a>
+
+          <!-- Project 03: Witness Voice AI -->
+          <a href="https://github.com/himanshusingh3107/Witness-voice-assistant" class="project-row from-void stagger-3" role="listitem" target="_blank" rel="noopener">
+            <span class="project-index">03 //</span>
+
+            <div class="project-title-col">
+              <div class="project-icon-box">
+                <img src="assets/icons/xyz-witness.svg" alt="" width="20" height="20" loading="lazy">
+              </div>
+              <span class="project-name">Witness Voice AI</span>
+            </div>
+
+            <div class="project-desc-col">
+              <span class="project-category">Voice AI &amp; Automation</span>
+              <p class="project-desc">Intelligent voice assistant engineered with Python and Flask for real-time speech command parsing, automation, and audio responses.</p>
+            </div>
+
+            <div class="project-status">
+              <span class="status-dot active"></span>
+              <span>GitHub ↗</span>
+            </div>
+          </a>
+
+          <!-- Project 04: Solar Analytics -->
+          <a href="https://solar-panels-nine.vercel.app" class="project-row from-void stagger-4" role="listitem" target="_blank" rel="noopener">
+            <span class="project-index">04 //</span>
+
+            <div class="project-title-col">
+              <div class="project-icon-box">
+                <img src="assets/icons/xyz-solar.svg" alt="" width="20" height="20" loading="lazy">
+              </div>
+              <span class="project-name">Solar Analytics</span>
+            </div>
+
+            <div class="project-desc-col">
+              <span class="project-category">CleanTech Analytics</span>
+              <p class="project-desc">Intelligent solar energy modeling and yield calculation web system with real-time estimation algorithms and efficiency metrics.</p>
+            </div>
+
+            <div class="project-status">
+              <span class="status-dot active"></span>
+              <span>Live App ↗</span>
+            </div>
+          </a>
+
+          <!-- Project 05: Learning Platform -->
+          <a href="https://github.com/himanshusingh3107/learning-platfrom" class="project-row from-void stagger-5" role="listitem" target="_blank" rel="noopener">
+            <span class="project-index">05 //</span>
+
+            <div class="project-title-col">
+              <div class="project-icon-box">
+                <img src="assets/icons/xyz-learning.svg" alt="" width="20" height="20" loading="lazy">
+              </div>
+              <span class="project-name">Learning Platform</span>
+            </div>
+
+            <div class="project-desc-col">
+              <span class="project-category">EdTech &amp; Cloud DB</span>
+              <p class="project-desc">Modular full-stack learning platform built with Flask, Turso DB, and role-based access control for courses, quizzes, and materials.</p>
+            </div>
+
+            <div class="project-status">
+              <span class="status-dot active"></span>
+              <span>GitHub ↗</span>
+            </div>
+          </a>
+
+          <!-- Project 06: XYZ Chat -->
+          <a href="https://github.com/roshan-2026/xyz-chat" class="project-row from-void stagger-5" role="listitem" target="_blank" rel="noopener">
+            <span class="project-index">06 //</span>
+
+            <div class="project-title-col">
+              <div class="project-icon-box">
+                <img src="assets/icons/xyz-chat.svg" alt="" width="20" height="20" loading="lazy">
+              </div>
+              <span class="project-name">XYZ Chat</span>
+            </div>
+
+            <div class="project-desc-col">
+              <span class="project-category">Real-Time Messaging</span>
+              <p class="project-desc">High-velocity team messaging client designed for distraction-free communication, ultra-clean state sync, and real-time interaction.</p>
+            </div>
+
+            <div class="project-status">
+              <span class="status-dot active"></span>
+              <span>GitHub ↗</span>
+            </div>
+          </a>
 
         </div>
+
       </div>
     </section>
 
-    <!-- =============================== ABOUT =============================== -->
+
+    <!-- About section -->
     <section class="section" id="about" aria-labelledby="about-heading">
-      <div class="container about-grid">
-        <div class="about-copy reveal">
-          <span class="eyebrow">About TheXYZGroup</span>
-          <h2 id="about-heading">A small studio, shipping real products</h2>
-          <p>
-            TheXYZGroup is a digital studio that designs and builds modern web applications,
-            AI-powered tools, and everyday utilities. We keep every project lean, fast, and
-            genuinely useful — no bloat, no filler features.
-          </p>
-          <p>
-            Every product on this page is actively maintained. When something new ships,
-            it appears here first, so this homepage stays the one place you need to bookmark.
-          </p>
-        </div>
+      <div class="container">
 
-        <div class="about-pillars reveal">
-          <div class="pillar glass">
-            <span class="num">01</span>
-            <div>
-              <h4>Design-first</h4>
-              <p>Every tool starts as an interface people actually enjoy using.</p>
+        <div class="about-layout">
+
+          <!-- Left column: manifesto -->
+          <div class="about-manifesto from-void">
+            <span class="eyebrow">The Manifesto</span>
+            <h2 class="about-big-lead" id="about-heading">
+              A lean studio, <span>shipping real software</span> without friction.
+            </h2>
+            <div class="about-prose">
+              <p>
+                TheXYZGroup designs and builds modern web applications,
+                AI-powered tools, and everyday utilities. We keep every project lean, fast, and
+                genuinely useful — no bloat, no filler features.
+              </p>
+              <p>
+                Every product on this page is actively maintained. When something new ships,
+                it materializes here first, so this hub stays the one place you need to bookmark.
+              </p>
             </div>
           </div>
-          <div class="pillar glass">
-            <span class="num">02</span>
-            <div>
-              <h4>Built to last</h4>
-              <p>Clean, modular code that's easy to maintain and extend.</p>
+
+          <!-- Right column: numbered architectural pillars (cardless) -->
+          <div class="about-pillars-stack from-void stagger-2">
+
+            <div class="pillar-tier">
+              <span class="pillar-num">01 / ARCHITECTURE</span>
+              <h3 class="pillar-title">Design-First Craft</h3>
+              <p class="pillar-desc">
+                Every tool starts as an interface people actually enjoy using — frictionless, tactile, and engineered with zero cognitive load.
+              </p>
             </div>
-          </div>
-          <div class="pillar glass">
-            <span class="num">03</span>
-            <div>
-              <h4>Always shipping</h4>
-              <p>New releases and updates roll out continuously, not once a year.</p>
+
+            <div class="pillar-tier">
+              <span class="pillar-num">02 / ENDURANCE</span>
+              <h3 class="pillar-title">Built to Endure</h3>
+              <p class="pillar-desc">
+                Clean, modular, and unbloated codebases that are resilient, easy to maintain, and fast on any device.
+              </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section><hr>
-    <!-- ============================== CONTACT ============================== -->
-    <section class="section" id="contact" aria-labelledby="contact-heading">
-      <div class="container contact-grid">
-        <div class="contact-card glass reveal">
-          <span class="eyebrow">Get in touch</span>
-          <h2 id="contact-heading">Let's talk</h2>
-          <p style="color:var(--color-text-muted); margin-top:var(--space-xs);">
-            Questions, feedback, or a project idea? Reach out any time.
-          </p>
 
-          <div class="contact-list">
-            <a href="mailto:roshan.nishad@thexyzgroup.in">
-              <span aria-hidden="true">✉</span> roshan.nishad@thexyzgroup.in
-            </a>
-            <a href="mailto:himanshu.singh@thexyzgroup.in">
-              <span aria-hidden="true">✉</span> himanshu.singh@thexyzgroup.in
-            </a>
-            <a href="mailto:pranav.mani@thexyzgroup.in">
-              <span aria-hidden="true">✉</span> pranav.mani@thexyzgroup.in
-            </a>
+            <div class="pillar-tier">
+              <span class="pillar-num">03 / VELOCITY</span>
+              <h3 class="pillar-title">Always Shipping</h3>
+              <p class="pillar-desc">
+                New releases, real-time features, and continuous updates roll out dynamically, not once a year.
+              </p>
+            </div>
+
           </div>
 
-          <div class="social-row" aria-label="Social media links">
-            <a class="social-icon" href="#" aria-label="TheXYZGroup on X (Twitter)">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.1-9.3L1 2h7l4.9 6.3L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg>
-            </a>
-            <a class="social-icon" href="#" aria-label="TheXYZGroup on LinkedIn">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.53 4.78 5.83V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9Z"/></svg>
-            </a>
-            <a class="social-icon" href="#" aria-label="TheXYZGroup on GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.53 9.53 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
-            </a>
-          </div>
         </div>
 
-        <div class="contact-card glass reveal">
-          <span class="eyebrow">Managed by</span>
-          <h2 style="font-size:var(--fs-h3);">Founders &amp; Managing Partners</h2>
-          <div class="contact-list" style="margin-top:var(--space-md);">
-            <h2 style="font-size:var(--fs-h3);color:  #c9a24b">Roshan Nishad <span style="color:white"><br></span> Himanshu Singh <span style="color:white"><br></span> Pranav Mani Tripathi</h2></div>
-          <p style="color:var(--color-text-muted); margin-top:var(--space-md); font-size:0.9rem;">
-            TheXYZGroup is founded and actively managed by Roshan, Himanshu and Pranav, who oversee
-            product direction across every project in this hub.
-          </p>
-        </div>
       </div>
     </section>
+
+    <!-- Individual founders profile sections (strictly cardless) -->
+    <section class="section" id="founders" aria-labelledby="founders-heading">
+      <div class="container">
+
+        <div class="section-head from-void">
+          <span class="eyebrow">The Leadership</span>
+          <h2 class="section-title" id="founders-heading">Founders &amp; Managing Partners</h2>
+          <p class="section-subtitle">
+            Directing technical architecture, product engineering, and ecosystem velocity across TheXYZGroup.
+          </p>
+        </div>
+
+        <div class="founders-stack">
+
+          <!-- Founder 01: Roshan Nishad -->
+          <article class="founder-row from-void stagger-1" aria-label="Profile of Roshan Nishad">
+            <div class="founder-media">
+              <div class="founder-pfp-frame">
+                <img src="assets/images/roshan.jpg" onerror="this.src='assets/icons/xyz-brand.svg'" alt="Roshan Nishad" class="founder-img" loading="lazy">
+              </div>
+              <div class="founder-identity">
+                <h3 class="founder-name">Roshan Nishad</h3>
+                <span class="founder-role">Co-Founder &amp; Engineering Partner</span>
+              </div>
+            </div>
+
+            <div class="founder-detail">
+              <p class="founder-intro">
+                Full Stack software engineer and systems architect from Gorakhpur (U.P.), pursuing B.Tech CSE at LPU. Specializes in building high-throughput web applications, clean scalable architectures, and developer systems with zero bloat. Spearheading frontend architecture and core technical velocity across TheXYZGroup.
+              </p>
+
+              <div class="founder-channels">
+                <!-- Email with 1-click copy -->
+                <div class="founder-email-line">
+                  <a href="mailto:roshan.nishad@thexyzgroup.in" class="founder-email-link">
+                    <span class="icon" aria-hidden="true">✉</span>
+                    <span>roshan.nishad@thexyzgroup.in</span>
+                  </a>
+                  <button class="btn-copy" data-email="roshan.nishad@thexyzgroup.in" aria-label="Copy Roshan Nishad's email">
+                    Copy Email
+                  </button>
+                </div>
+
+                <!-- Portfolio link & socials -->
+                <div class="founder-actions-row">
+                  <a href="https://roshan.thexyzgroup.in" class="founder-portfolio-link" target="_blank" rel="noopener">
+                    <span>Visit Portfolio Website</span>
+                    <span class="arrow" aria-hidden="true">↗</span>
+                  </a>
+
+                  <div class="founder-socials" aria-label="Roshan Nishad Social Media Links">
+                    <!-- GitHub -->
+                    <a href="https://github.com/roshan-2026" class="founder-social-btn" target="_blank" rel="noopener" aria-label="Roshan Nishad on GitHub" title="GitHub">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.53 9.53 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/roshan-nishad-cse-btech" class="founder-social-btn" target="_blank" rel="noopener" aria-label="Roshan Nishad on LinkedIn" title="LinkedIn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.53 4.78 5.83V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9Z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/i.am_r.k_" class="founder-social-btn" target="_blank" rel="noopener" aria-label="Roshan Nishad on Instagram" title="Instagram">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Founder 02: Himanshu Singh (Backend Partner) -->
+          <article class="founder-row from-void stagger-2" aria-label="Profile of Himanshu Singh">
+            <div class="founder-media">
+              <div class="founder-pfp-frame">
+                <img src="assets/images/himanshu.jpg" onerror="this.src='assets/icons/xyz-brand.svg'" alt="Himanshu Singh" class="founder-img" loading="lazy">
+              </div>
+              <div class="founder-identity">
+                <h3 class="founder-name">Himanshu Singh</h3>
+                <span class="founder-role">Co-Founder &amp; Backend Partner</span>
+              </div>
+            </div>
+
+            <div class="founder-detail">
+              <p class="founder-intro">
+                Backend engineer and systems architect specializing in server-side scalability, database modeling, and high-performance API ecosystems. Spearheading core backend infrastructure, distributed microservices, authentication security, and cloud data workflows across TheXYZGroup.
+              </p>
+
+              <div class="founder-channels">
+                <!-- Email with 1-click copy -->
+                <div class="founder-email-line">
+                  <a href="mailto:himanshu.singh@thexyzgroup.in" class="founder-email-link">
+                    <span class="icon" aria-hidden="true">✉</span>
+                    <span>himanshu.singh@thexyzgroup.in</span>
+                  </a>
+                  <button class="btn-copy" data-email="himanshu.singh@thexyzgroup.in" aria-label="Copy Himanshu Singh's email">
+                    Copy Email
+                  </button>
+                </div>
+
+                <!-- Portfolio link & socials -->
+                <div class="founder-actions-row">
+                  <a href="https://himanshu.thexyzgroup.in" class="founder-portfolio-link" target="_blank" rel="noopener">
+                    <span>Visit Portfolio Website</span>
+                    <span class="arrow" aria-hidden="true">↗</span>
+                  </a>
+
+                  <div class="founder-socials" aria-label="Himanshu Singh Social Media Links">
+                    <!-- GitHub -->
+                    <a href="https://github.com/himanshusingh3107" class="founder-social-btn" target="_blank" rel="noopener" aria-label="Himanshu Singh on GitHub" title="GitHub">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.53 9.53 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/himanshusingh3107/" class="founder-social-btn" target="_blank" rel="noopener" aria-label="Himanshu Singh on LinkedIn" title="LinkedIn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.53 4.78 5.83V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9Z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/__h.i.m.a.n.s.h.u.__" class="founder-social-btn" target="_blank" rel="noopener" aria-label="Himanshu Singh on Instagram" title="Instagram">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Founder 03: Pranav Mani Tripathi (Frontend Partner) -->
+          <article class="founder-row from-void stagger-3" aria-label="Profile of Pranav Mani Tripathi">
+            <div class="founder-media">
+              <div class="founder-pfp-frame">
+                <img src="assets/images/pranav.jpg" onerror="this.src='assets/icons/xyz-brand.svg'" alt="Pranav Mani Tripathi" class="founder-img" loading="lazy">
+              </div>
+              <div class="founder-identity">
+                <h3 class="founder-name">Pranav Mani Tripathi</h3>
+                <span class="founder-role">Co-Founder &amp; Frontend Partner</span>
+              </div>
+            </div>
+
+            <div class="founder-detail">
+              <p class="founder-intro">
+                Frontend developer and UI/UX specialist focused on crafting hyper-responsive, accessible, and intuitive web interfaces. Directs client-side performance, modern component frameworks, fluid interactive animations, and cohesive design systems across all TheXYZGroup applications.
+              </p>
+
+              <div class="founder-channels">
+                <!-- Email with 1-click copy -->
+                <div class="founder-email-line">
+                  <a href="mailto:pranav.mani@thexyzgroup.in" class="founder-email-link">
+                    <span class="icon" aria-hidden="true">✉</span>
+                    <span>pranav.mani@thexyzgroup.in</span>
+                  </a>
+                  <button class="btn-copy" data-email="pranav.mani@thexyzgroup.in" aria-label="Copy Pranav Mani Tripathi's email">
+                    Copy Email
+                  </button>
+                </div>
+
+                <!-- Portfolio link & socials -->
+                <div class="founder-actions-row">
+                  <a href="coming.html" class="founder-portfolio-link" target="_blank" rel="noopener">
+                    <span>Visit Portfolio Website</span>
+                    <span class="arrow" aria-hidden="true">↗</span>
+                  </a>
+
+                  <div class="founder-socials" aria-label="Pranav Mani Tripathi Social Media Links">
+                    <!-- GitHub -->
+                    <a href="https://github.com/akarshmanitripathi07-lab" class="founder-social-btn" target="_blank" rel="noopener" aria-label="Pranav Mani Tripathi on GitHub" title="GitHub">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.53 9.53 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/pranav-mani-tripathi-511698431/" class="founder-social-btn" target="_blank" rel="noopener" aria-label="Pranav Mani Tripathi on LinkedIn" title="LinkedIn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.53 4.78 5.83V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9Z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/akarshmanitripathi1" class="founder-social-btn" target="_blank" rel="noopener" aria-label="Pranav Mani Tripathi on Instagram" title="Instagram">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
   </main>
-  <!-- JavaScript (deferred so it never blocks rendering) -->
-  <script src="js/script.js" defer></script>
+
+  <!-- Scripts -->
+  <script src="js/wave.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
